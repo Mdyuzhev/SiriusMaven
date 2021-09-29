@@ -60,4 +60,16 @@ public class PetTests {
                 .log().all();
     }
 
+    @Test
+    public void getPetByStatusSoldWithoutLogSirius1() {
+        given()
+
+                .contentType(ContentType.JSON)
+                .baseUri(BASE_URI)
+                .get("/findByStatus?status=potercheno1")
+                .then()
+                .assertThat().statusCode(200)
+                .log().all();
+    }
+
 }

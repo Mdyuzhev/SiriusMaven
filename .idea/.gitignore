@@ -7,5 +7,7 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 .idea
-allure-results
+/allure-results
 target
+.allure-results
+.un
