@@ -37,4 +37,27 @@ public class PetTests {
                 .log().all();
     }
 
+    @Test
+    public void getPetByStatusSoldWithoutLog() {
+        given()
+
+                .contentType(ContentType.JSON)
+                .baseUri(BASE_URI)
+                .get("/findByStatus?status=sold")
+                .then()
+                .assertThat().statusCode(200);
+    }
+
+    @Test
+    public void getPetByStatusSoldWithoutLogSirius() {
+        given()
+
+                .contentType(ContentType.JSON)
+                .baseUri(BASE_URI)
+                .get("/findByStatus?status=potercheno")
+                .then()
+                .assertThat().statusCode(200)
+                .log().all();
+    }
+
 }
