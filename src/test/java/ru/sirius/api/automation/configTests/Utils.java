@@ -137,6 +137,19 @@ public class Utils {
                 .then().assertThat().statusCode(statusCode);
     }
 
+    @Step ("Отправка GET запроса")
+    public static ValidatableResponse getReq (String status){
+
+        return given()
+                .contentType(ContentType.JSON)
+                .baseUri(BASE_URI)
+                .get("/findByStatus?status="+status)
+                .then()
+                .assertThat().statusCode(200);
+    }
+
+
+
 
 
 

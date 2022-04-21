@@ -11,7 +11,7 @@ import static io.restassured.RestAssured.given;
 import static ru.sirius.api.automation.configTests.Endpoints.*;
 
 @DisplayName("Мои автотесты для API")
-public class MyTests {
+public class MyTestsMDyuzhev {
     @Test
     public void getPetByStatusAvailable() {
         given()
