@@ -4,6 +4,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import ru.sirius.api.automation.configTests.Utils;
 
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
@@ -22,35 +23,19 @@ public class MyTests {
                 //.log().all();
     }
 
-    String pet = "{\n" +
-            "  \"id\": 0,\n" +
-            "  \"category\": {\n" +
-            "    \"id\": 0,\n" +
-            "    \"name\": \"string\"\n" +
-            "  },\n" +
-            "  \"name\": \"doggie\",\n" +
-            "  \"photoUrls\": [\n" +
-            "    \"string\"\n" +
-            "  ],\n" +
-            "  \"tags\": [\n" +
-            "    {\n" +
-            "      \"id\": 0,\n" +
-            "      \"name\": \"string\"\n" +
-            "    }\n" +
-            "  ],\n" +
-            "  \"status\": \"available\"\n" +
-            "}";
+    String petBody = Utils.getString("src/test/java/ru/sirius/api/automation/models/pet.json");
+
     @Test
     public void addPet() {
         given()
 
                 .contentType(ContentType.JSON)
                 .relaxedHTTPSValidation()
-                .body(pet)
-                .post("https://petstore.swagger.io/v2/pet")
+                .body(petBody)
+                .post(CREATE_PET)
                 .then()
-                .assertThat().statusCode(200)
-                .log().all();
+                .assertThat().statusCode(200);
+                //.log().all();
     }
 
 }
