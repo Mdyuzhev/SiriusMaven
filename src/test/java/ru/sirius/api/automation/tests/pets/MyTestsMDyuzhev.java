@@ -1,12 +1,9 @@
 package ru.sirius.api.automation.tests.pets;
-import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.http.ContentType;
-import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.sirius.api.automation.configTests.Utils;
 
-import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 import static ru.sirius.api.automation.configTests.Endpoints.*;
 
@@ -37,5 +34,12 @@ public class MyTestsMDyuzhev {
                 .assertThat().statusCode(200);
                 //.log().all();
     }
+
+    @Test
+    public void addPe1t() {
+        Utils.postReq(petBody,CREATE_PET,200);
+    }
+
+
 
 }
